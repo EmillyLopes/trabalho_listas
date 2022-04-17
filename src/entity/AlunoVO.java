@@ -1,10 +1,18 @@
 package entity;
 
-public class AlunoVO {
+import java.util.List;
 
+import service.ListaRN;
+
+public class AlunoVO extends DisciplinasVO{
+	
+	AlunoVO aluno;
 	private int rgm; // CHAVE PRIMARIA
 	private String nome;
-	DisciplinasVO [] disciplinas = new DisciplinasVO[100];
+	DisciplinasVO[] disciplinas = new DisciplinasVO[20];
+	ListaRN lista;
+	
+	int tamanho = 0;
 		
 	public int getRgm() {
 		return rgm;
@@ -18,10 +26,12 @@ public class AlunoVO {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public void setDados (int matricula, String novoNome, DisciplinasVO disciplinas) {
+	public void setDados (int matricula, String novoNome) {
 		rgm = matricula;
 		nome = novoNome;
-		disciplin = disciplinas;
 		
 	}
+	
+	
+	
 }

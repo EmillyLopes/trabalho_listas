@@ -12,14 +12,14 @@ public class MainLista {
 		int online = 1;
 		Scanner teclado = new Scanner(System.in);
 		ListaRN listaAlunos = new ListaRN();
-		DisciplinasVO[] disciplina = new DisciplinasVO[100];
+		DisciplinasVO disciplina = new DisciplinasVO();
 
 		while(online==1){
 			
 			mostraOpcoes();
 			int escolha = teclado.nextInt();
 			TelaRN  tela = new TelaRN();
-			tela.verificaEscolha(listaAlunos, escolha, online);
+			tela.verificaEscolha(listaAlunos, escolha, online, disciplina);
 
 		}		
 		System.out.println("Encerrando...");

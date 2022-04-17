@@ -1,7 +1,6 @@
 package service;
 
 import entity.AlunoVO;
-import entity.DisciplinasVO;
 
 public class ListaRN {
 
@@ -13,39 +12,36 @@ public class ListaRN {
 			return (tamanho == 0);
 		}
 		
+		
 		public boolean estaCheia() {
 			return (tamanho == universitarios.length);
 		}
 		
+		
 		public void mostraAlunos() {
 			
-			if (estaVazia()) {
+			if ( estaVazia() )
 				System.out.println("Nao ha nomes na lista");
-			}else{
+			else {
+					
 				System.out.println("Segue a lista de alunos:");
+				
 				for (int i = 0; i < tamanho; i++) {
 					System.out.println("RGM:\t" + universitarios[i].getRgm());
 					System.out.println("Nome:\t" + universitarios[i].getNome() + "\n");
 				}
 			}
 		}
-//		public int listarOrdemRgm(AlunoVO aluno, int rgm) {
-//			if(this.rgm > aluno.getRgm()){
-//				return -1;
-//			}else if(this.this < carro.cilindrada){
-//				return 1;
-//			}
-//			return this.getCor().compareToIgnoreCase(carro.getCor());
-//		}}
-
 
 		
-		public void inserirAluno(int rgm, String alunoNome, DisciplinasVO[] disciplina) {
-			if (estaCheia()) {
+		public void inserirAluno(int rgm, String alunoNome) {
+			
+			if ( estaCheia()) {
 				System.out.println("A lista esta cheia");
+			
 			}else{
 				AlunoVO a = new AlunoVO();
-				a.setDados(rgm, alunoNome, disciplina);
+				a.setDados(rgm, alunoNome);
 				this.universitarios[tamanho] = a;
 				tamanho++;
 				System.out.println("Feito!\n\n");
@@ -53,14 +49,19 @@ public class ListaRN {
 		}
 		
 		public void excluirAluno(int posicao) {
+			
 			for(int i = posicao ;i<tamanho; i++) {
 				this.universitarios[i]=this.universitarios[i+1];
+
 			}
+
 			tamanho--;
 			System.out.println("aluno excluido!");
+
 		}
 
 	 	public void buscaRGM(int chave) {
+
 	 		for(int i = 0; i < tamanho; i++) {
 	 			if(universitarios[i].getRgm() == chave) {
 	 				System.out.println("Nome:\t" + universitarios[i].getNome() + "\n");
@@ -84,4 +85,3 @@ public class ListaRN {
 		}
 		
 	}
-

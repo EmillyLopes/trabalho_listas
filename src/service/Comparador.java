@@ -12,7 +12,7 @@ public class Comparador{
 	    }
 
 	    
-	    public int compareTo(Integer anotherInteger) {
-			return compare(this.valueOf(y), Integer.valueOf(x));
-	    }
+//	    public int compareTo(Integer anotherInteger) {
+//			return compare(this.valueOf(y), Integer.valueOf(x));
+//	    }
 }

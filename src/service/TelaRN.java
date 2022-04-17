@@ -13,7 +13,7 @@ public class TelaRN {
 	}
 	
 	
-	public void  verificaEscolha(ListaRN listaAlunos, int escolha, int online) {
+	public void  verificaEscolha(ListaRN listaAlunos, int escolha, int online, DisciplinasVO disciplina) {
 		
 		switch (escolha) {
 		case 0:{
@@ -34,11 +34,13 @@ public class TelaRN {
 				System.out.println("Opcao invalida! reinicie a aplicacao e insira uma opcao correta.");
 			}
 			System.out.println("Agora insira o Nome do Aluno:");
+			teclado.nextLine();
 			String nomeNewAluno = teclado.nextLine();
-			System.out.println("Digite as disciplinas:");
-			String disciplina = teclado.nextLine();
-			DisciplinasVO[] disciplinas = disciplinas.
-			listaAlunos.inserirAluno(rgmASerInserido, nomeNewAluno, disciplina);
+			
+//			System.out.println("Digite as disciplinas:");
+//			teclado.next();
+//			String dis = teclado.nextLine();
+			listaAlunos.inserirAluno(rgmASerInserido, nomeNewAluno);
 			break;
 	
 		}

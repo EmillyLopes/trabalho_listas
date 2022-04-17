@@ -1,14 +1,23 @@
 package entity;
 
+import service.ListaRN;
+
 public class DisciplinasVO {
 
-	String disciplina;
-
-	public String getDisciplina() {
-		return disciplina;
+	AlunoVO aluno;
+	ListaRN listaAluno;
+	DisciplinasVO[] disciplinas;
+	
+	public DisciplinasVO[] getDisciplina() {
+		return disciplinas;
 	}
 
-	public void setDisciplina(String disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplina(DisciplinasVO[] disciplina) {
+		this.disciplinas = disciplina;
 	}
+	private void setDiciplinas(AlunoVO alunos, DisciplinasVO[] disciplina) {
+		aluno = alunos;
+		disciplinas = disciplina;
+	}
+
 }
