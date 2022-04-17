@@ -2,6 +2,7 @@ package Main;
 
 import java.util.Scanner;
 
+import entity.AlunoVO;
 import entity.DisciplinasVO;
 import service.ListaRN;
 import service.TelaRN;
@@ -9,19 +10,18 @@ import service.TelaRN;
 public class MainLista {
 	public static void main(String[] args) {				
 
-		int online = 1;
 		Scanner teclado = new Scanner(System.in);
 		ListaRN listaAlunos = new ListaRN();
-		DisciplinasVO disciplina = new DisciplinasVO();
-
-		while(online==1){
+		AlunoVO aluno;
+		int op = 1;
+	
+		while(op ==1) {
+		mostraOpcoes();
+		int escolha = teclado.nextInt();
+		TelaRN  tela = new TelaRN();
+		tela.verificaEscolha(listaAlunos, escolha);
+		}
 			
-			mostraOpcoes();
-			int escolha = teclado.nextInt();
-			TelaRN  tela = new TelaRN();
-			tela.verificaEscolha(listaAlunos, escolha, online, disciplina);
-
-		}		
 		System.out.println("Encerrando...");
 		teclado.close();
 	}

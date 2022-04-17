@@ -4,6 +4,7 @@ import entity.AlunoVO;
 
 public class ListaRN {
 
+		AlunoVO aluno;
 		AlunoVO [] universitarios = new AlunoVO[60];
 		int tamanho = 0;
 		
@@ -19,29 +20,29 @@ public class ListaRN {
 		
 		
 		public void mostraAlunos() {
-			
-			if ( estaVazia() )
+
+			if (estaVazia() )
 				System.out.println("Nao ha nomes na lista");
 			else {
-					
 				System.out.println("Segue a lista de alunos:");
-				
-				for (int i = 0; i < tamanho; i++) {
+				for (int i = 0; i < universitarios.length; i++) {
 					System.out.println("RGM:\t" + universitarios[i].getRgm());
 					System.out.println("Nome:\t" + universitarios[i].getNome() + "\n");
+					for (int j = 0; j < tamanho; j++) {
+						System.out.println("Disciplinas:\t" + (universitarios[j].getDisciplinas()).toString() + "\n");
+					}
 				}
 			}
-		}
 
-		
-		public void inserirAluno(int rgm, String alunoNome) {
+		}	
+		public void inserirAluno(int rgm, String alunoNome, String disciplinas) {
 			
 			if ( estaCheia()) {
 				System.out.println("A lista esta cheia");
 			
 			}else{
 				AlunoVO a = new AlunoVO();
-				a.setDados(rgm, alunoNome);
+				a.setDados(rgm, alunoNome, disciplinas);
 				this.universitarios[tamanho] = a;
 				tamanho++;
 				System.out.println("Feito!\n\n");
