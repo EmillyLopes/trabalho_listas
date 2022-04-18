@@ -20,11 +20,15 @@ public class AlunoVO{
 	public void setRgm(int rgm) {
 		this.rgm = rgm;
 	}
+//	@Override
+//	public String toString(){
+//		return "Disciplinas: " + disciplinas;
+//	
+//	}
 	public String[] getDisciplinas() {
-		for(int i = 0; i < tamanho; i++){
-			System.out.println(disciplinas[i]);
-			tamanho++;
-		}
+//		for(int i = 0; i < disciplinas.length; i++){
+//			System.out.println("\nDisciplinas: " + disciplinas[i]);
+//	}
 		return disciplinas;
 	}
 	public void setDisciplinas(String[] disciplinas) {
@@ -42,11 +46,5 @@ public class AlunoVO{
 		this.setDisciplinas(disciplinas);
 		
 	}
-	public void inserirDisciplinas(String disciplina){
-		for(int i = 0; i < tamanho; i++){
-			disciplinas[i] = disciplina;
-			tamanho++;
-			
-		}
+	
 	}
-}

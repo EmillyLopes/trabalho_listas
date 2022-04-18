@@ -8,6 +8,7 @@ public class TelaRN {
 	Scanner teclado = new Scanner(System.in);
 	AlunoVO aluno;
 	ListaRN lista;
+	int pergunta = 1;
 
 	public int pegaEntradaTecladoInt() {
 		int variavel = teclado.nextInt();
@@ -36,14 +37,22 @@ public class TelaRN {
 				if (rgmASerInserido == -1) {
 					System.out.println("Opcao invalida! reinicie a aplicacao e insira uma opcao correta.");
 				}
-				
+
 				System.out.println("Agora insira o Nome do Aluno:");
 				teclado.nextLine();
 				String nomeNewAluno = teclado.nextLine();
 
-				System.out.println("Digite as disciplinas:");
-				String[] disciplina = verificaResposta();
+				System.out.println("Disciplinas:");
 				
+				System.out.println("Deseja inserir quantas disciplinas?");
+				pergunta = teclado.nextInt();
+				String[] disciplina = verificaResposta(listaAlunos, pergunta);
+				while(pergunta==1) {
+					disciplina = verificaResposta(listaAlunos, pergunta);
+				}
+				
+			
+
 				listaAlunos.inserirAluno(rgmASerInserido, nomeNewAluno, disciplina);
 				break;
 			}
@@ -66,28 +75,23 @@ public class TelaRN {
 			}
 			default: {
 				System.out.println("Opcao invalida! reinicie a aplicacao e insira uma opcao correta.");
-			}
-		}
-
-	}
-}
-	
-	public String[] verificaResposta(){
-		Scanner teclado = new Scanner(System.in);
-		String[] disciplina = new String[6];
-		
-		System.out.println("Deseja inserir disciplina? (1-SIM/0-NÃO)");
-		int pergunta = pegaEntradaTecladoInt();
-		
-		
-			while(pergunta==1) {
-				for(int i = 0; i < disciplina.length; i++) {
-					System.out.println("Digite as disciplinas:");
-					disciplina[i]  = teclado.nextLine();
-					aluno.setDisciplinas(disciplina);
 				}
 			}
-		 
-		return disciplina;
+
+		}
 	}
+
+	public String[] verificaResposta(ListaRN ListaAlunos, int pergunta){
+		Scanner teclado = new Scanner(System.in);
+		String[] disciplina = new String[pergunta];
+				for(int i = 0; i < disciplina.length; i++) {
+					System.out.println("Digite as disciplinas:");
+					disciplina[i] = teclado.nextLine();
+					ListaAlunos.setDisciplinas(disciplina);
+				} 
+				System.out.println("Saindo...");
+			
+			return disciplina;
+	}
+	
 }

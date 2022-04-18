@@ -7,7 +7,10 @@ import entity.AlunoVO;
 public class ListaRN {
 
 		AlunoVO aluno;
-		AlunoVO [] universitarios = new AlunoVO[60];
+		TelaRN tela;
+		AlunoVO[] universitarios = new AlunoVO[60];
+		String[] disciplina;
+
 		int tamanho = 0;
 		
 		
@@ -22,17 +25,22 @@ public class ListaRN {
 	
 		public void mostraAlunos() {
 
-			if (estaVazia() )
-				System.out.println("Nao ha nomes na lista");
-			else {
-				System.out.println("Segue a lista de alunos:");
-				for (int i = 0; i < universitarios.length; i++) {
-					System.out.println("RGM:\t" + universitarios[i].getRgm());
-					System.out.println("Nome:\t" + universitarios[i].getNome() + "\n");
-					for (int j = 0; j < tamanho; j++) {
-						System.out.println("Disciplinas:\t" + (universitarios[i].getDisciplinas()) + "\n");
+			try {
+				if (estaVazia() )
+					System.out.println("Nao ha nomes na lista");
+				else {
+					System.out.println("Segue a lista de alunos:");
+					for (int i = 0; i < universitarios.length; i++) {
+						System.out.println("RGM:\t" + universitarios[i].getRgm());
+						System.out.println("Nome:\t" + universitarios[i].getNome());
+						System.out.print("Disciplinas:\n");
+						for (int j = 0; j < disciplina.length; j++) {
+							System.out.println(disciplina[j].toString());
+						}
 					}
 				}
+			} catch (Exception e) {
+				System.out.println("\nErro ao mostrar a lista");
 			}
 
 		}	
@@ -49,7 +57,16 @@ public class ListaRN {
 				System.out.println("Feito!\n\n");
 			}
 		}
-		
+//		public void inserirDisciplinas(int pergunta, String disciplinas){
+//			String[] disciplina = new String[pergunta];
+//			for(int i = 0; i < tamanho; i++){
+//				disciplina[i] = disciplinas;
+//				tamanho++;
+//			}
+//		}
+		public void setDisciplinas(String[] disciplinas) {
+			this.disciplina = disciplinas;
+		}
 		public void excluirAluno(int posicao) {
 			
 			for(int i = posicao ;i<tamanho; i++) {
