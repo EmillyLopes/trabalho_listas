@@ -3,11 +3,11 @@ package service;
 import java.util.Scanner;
 
 import entity.AlunoVO;
-import entity.DisciplinasVO;
 
 public class TelaRN {
 	Scanner teclado = new Scanner(System.in);
 	AlunoVO aluno;
+	ListaRN lista;
 
 	public int pegaEntradaTecladoInt() {
 		int variavel = teclado.nextInt();
@@ -42,11 +42,7 @@ public class TelaRN {
 				String nomeNewAluno = teclado.nextLine();
 
 				System.out.println("Digite as disciplinas:");
-				String disciplina = teclado.nextLine();
-
-				System.out.println("Deseja inserir mais? (1-SIM/0-NÃO)");				
-				int pergunta = pegaEntradaTecladoInt();
-				verificaResposta(pergunta);			
+				String[] disciplina = verificaResposta();
 				
 				listaAlunos.inserirAluno(rgmASerInserido, nomeNewAluno, disciplina);
 				break;
@@ -74,17 +70,24 @@ public class TelaRN {
 		}
 
 	}
-
-	}
-	public void verificaResposta(int pergunta){
+}
+	
+	public String[] verificaResposta(){
 		Scanner teclado = new Scanner(System.in);
-		if(pergunta ==1){
-			System.out.println("Digite as disciplinas:");
-			String disciplina = teclado.nextLine();
-			System.out.println("Deseja inserir mais? (1-SIM/0-NÃO)");
-			pergunta = pegaEntradaTecladoInt();
-		}else {
-			System.out.println("Saindo...");
-		}
-	}		
+		String[] disciplina = new String[6];
+		
+		System.out.println("Deseja inserir disciplina? (1-SIM/0-NÃO)");
+		int pergunta = pegaEntradaTecladoInt();
+		
+		
+			while(pergunta==1) {
+				for(int i = 0; i < disciplina.length; i++) {
+					System.out.println("Digite as disciplinas:");
+					disciplina[i]  = teclado.nextLine();
+					aluno.setDisciplinas(disciplina);
+				}
+			}
+		 
+		return disciplina;
+	}
 }

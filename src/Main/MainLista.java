@@ -3,7 +3,6 @@ package Main;
 import java.util.Scanner;
 
 import entity.AlunoVO;
-import entity.DisciplinasVO;
 import service.ListaRN;
 import service.TelaRN;
 
@@ -12,7 +11,6 @@ public class MainLista {
 
 		Scanner teclado = new Scanner(System.in);
 		ListaRN listaAlunos = new ListaRN();
-		AlunoVO aluno;
 		int op = 1;
 	
 		while(op ==1) {

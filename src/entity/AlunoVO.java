@@ -4,12 +4,12 @@ import java.util.List;
 
 import service.ListaRN;
 
-public class AlunoVO extends DisciplinasVO{
+public class AlunoVO{
 	
 	AlunoVO aluno;
 	private int rgm; // CHAVE PRIMARIA
 	private String nome;
-	String[] disciplinas = new String[20];
+	String[] disciplinas;
 	ListaRN lista;
 	
 	int tamanho = 0;
@@ -21,6 +21,10 @@ public class AlunoVO extends DisciplinasVO{
 		this.rgm = rgm;
 	}
 	public String[] getDisciplinas() {
+		for(int i = 0; i < tamanho; i++){
+			System.out.println(disciplinas[i]);
+			tamanho++;
+		}
 		return disciplinas;
 	}
 	public void setDisciplinas(String[] disciplinas) {
@@ -32,16 +36,17 @@ public class AlunoVO extends DisciplinasVO{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public void setDados (int matricula, String novoNome, String disciplina) {
+	public void setDados (int matricula, String novoNome, String[] disciplinas) {
 		rgm = matricula;
 		nome = novoNome;
-		this.inserirDisciplinas(disciplina);
+		this.setDisciplinas(disciplinas);
 		
 	}
 	public void inserirDisciplinas(String disciplina){
 		for(int i = 0; i < tamanho; i++){
 			disciplinas[i] = disciplina;
 			tamanho++;
+			
 		}
 	}
 }

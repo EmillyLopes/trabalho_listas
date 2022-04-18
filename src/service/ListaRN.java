@@ -1,5 +1,7 @@
 package service;
 
+import java.util.Scanner;
+
 import entity.AlunoVO;
 
 public class ListaRN {
@@ -17,8 +19,7 @@ public class ListaRN {
 		public boolean estaCheia() {
 			return (tamanho == universitarios.length);
 		}
-		
-		
+	
 		public void mostraAlunos() {
 
 			if (estaVazia() )
@@ -29,13 +30,13 @@ public class ListaRN {
 					System.out.println("RGM:\t" + universitarios[i].getRgm());
 					System.out.println("Nome:\t" + universitarios[i].getNome() + "\n");
 					for (int j = 0; j < tamanho; j++) {
-						System.out.println("Disciplinas:\t" + (universitarios[j].getDisciplinas()).toString() + "\n");
+						System.out.println("Disciplinas:\t" + (universitarios[i].getDisciplinas()) + "\n");
 					}
 				}
 			}
 
 		}	
-		public void inserirAluno(int rgm, String alunoNome, String disciplinas) {
+		public void inserirAluno(int rgm, String alunoNome, String[] disciplinas) {
 			
 			if ( estaCheia()) {
 				System.out.println("A lista esta cheia");
@@ -66,6 +67,7 @@ public class ListaRN {
 	 		for(int i = 0; i < tamanho; i++) {
 	 			if(universitarios[i].getRgm() == chave) {
 	 				System.out.println("Nome:\t" + universitarios[i].getNome() + "\n");
+					System.out.println("RGM:\t" + universitarios[i].getRgm());
 	 				return;
 	 			}
 	 		}
