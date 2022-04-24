@@ -9,7 +9,8 @@ public class AlunoVO{
 	AlunoVO aluno;
 	private int rgm; // CHAVE PRIMARIA
 	private String nome;
-	String[] disciplinas;
+	public String[] disciplinas;
+	
 	ListaRN lista;
 	
 	int tamanho = 0;
@@ -26,8 +27,8 @@ public class AlunoVO{
 //	
 //	}
 	public String[] getDisciplinas() {
-//		for(int i = 0; i < disciplinas.length; i++){
-//			System.out.println("\nDisciplinas: " + disciplinas[i]);
+//		for(int j = 0; j < disciplinas.length; j++){
+//			System.out.print(disciplinas[j].toString());
 //	}
 		return disciplinas;
 	}

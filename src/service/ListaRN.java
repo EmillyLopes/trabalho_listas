@@ -9,7 +9,7 @@ public class ListaRN {
 		AlunoVO aluno;
 		TelaRN tela;
 		AlunoVO[] universitarios = new AlunoVO[60];
-		String[] disciplina;
+		String[] disciplinas;
 
 		int tamanho = 0;
 		
@@ -31,16 +31,18 @@ public class ListaRN {
 				else {
 					System.out.println("Segue a lista de alunos:");
 					for (int i = 0; i < universitarios.length; i++) {
-						System.out.println("RGM:\t" + universitarios[i].getRgm());
+						System.out.println("\nRGM:\t" + universitarios[i].getRgm());
 						System.out.println("Nome:\t" + universitarios[i].getNome());
-						System.out.print("Disciplinas:\n");
-						for (int j = 0; j < disciplina.length; j++) {
-							System.out.println(disciplina[j].toString());
+						System.out.println("Disciplinas:");
+						for (int j = 0; j < universitarios[i].disciplinas.length; j++) {
+							System.out.print(universitarios[i].disciplinas[j] + " ");
+							
 						}
+						System.out.print("\n");
 					}
 				}
 			} catch (Exception e) {
-				System.out.println("\nErro ao mostrar a lista");
+				System.out.println("\nParando...");
 			}
 
 		}	
@@ -65,7 +67,7 @@ public class ListaRN {
 //			}
 //		}
 		public void setDisciplinas(String[] disciplinas) {
-			this.disciplina = disciplinas;
+			this.disciplinas = disciplinas;
 		}
 		public void excluirAluno(int posicao) {
 			
