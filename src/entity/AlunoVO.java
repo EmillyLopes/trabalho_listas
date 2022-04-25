@@ -33,12 +33,7 @@ public class AlunoVO{
 		this.setDisciplinas(disciplinas);
 		
 	}
-	public void setDadosDis (DisciplinasVO disciplinas) {
-		DisciplinasVO d = new DisciplinasVO();
-		this.disciplinas[tamanho] = d;
-		tamanho++;
-		
-	}
+
 	public DisciplinasVO[] getDisciplinas() {
 		return disciplinas;
 	}

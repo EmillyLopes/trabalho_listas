@@ -18,12 +18,14 @@ public class TelaRN {
 	}
 	
 	
-	public void  verificaEscolha(ListaRN listaAlunos, int escolha) {
-		int online = 1;
-		if(online==1){
+	public void  verificaEscolha(ListaRN listaAlunos, int escolha, int op) {
 			switch (escolha) {
-			case 0:{
-				online=0;
+			
+			case 0:  {
+				op = 0;
+				
+				System.out.println("Saindo...");
+				System.exit(op);
 				break;
 			}
 			case 1: {
@@ -48,7 +50,8 @@ public class TelaRN {
 				
 				System.out.println("Deseja inserir quantas disciplinas?");
 				pergunta = teclado.nextInt();
-				DisciplinasVO[] disciplina = inserirDisciplina(pergunta);
+				DisciplinasVO[] disciplina = adquirirDisciplina(pergunta);
+				
 				listaAlunos.inserirAluno(rgmASerInserido, nomeNewAluno, disciplina);
 				break;
 			}
@@ -75,39 +78,30 @@ public class TelaRN {
 			}
 
 		}
-	}
+	
 
-	public DisciplinasVO inserirDisciplina(int pergunta){
+	public DisciplinasVO[] adquirirDisciplina(int pergunta){
 		Scanner teclado = new Scanner(System.in);
-		DisciplinasVO disciplina = new DisciplinasVO();
-				for(int i = 0; i < pergunta; i++) {
+		DisciplinasVO[] disciplina = new DisciplinasVO[pergunta];
+		
+				for(int i = 0; i < disciplina.length; i++) {
+					DisciplinasVO d = new DisciplinasVO();
 					System.out.println("Digite as disciplinas:");
 					teclado.nextLine();
 					String dis = teclado.nextLine();
-					disciplina.setDisciplina(dis);
-					System.out.println("Digite a nota:");					
+					d.setDisciplina(dis);
+					
+					System.out.println("Digite a nota:");	
 					float nota = teclado.nextFloat();
-					disciplina.setNota(nota);
-					aluno.setDadosDis(disciplina);
+					d.setNota(nota);
+					
+					disciplina[i] = d;
+				
 				} 
 				System.out.println("Saindo...");
-			return disciplina;
-	}
-	public DisciplinasVO[] verificaResposta(int pergunta){
-		Scanner teclado = new Scanner(System.in);
-		DisciplinasVO[] disciplina = new DisciplinasVO[pergunta];
-				for(int i = 0; i < disciplina.length; i++) {
-					System.out.println("Digite as disciplinas:");
-					disciplina[i].setDisciplina(teclado.nextLine());
-					System.out.println("Digite a nota:");					
-					disciplina[i].setNota(teclado.nextFloat());
-					aluno.setDisciplinas(disciplina);
-				} 
-				System.out.println("Saindo...");
+				return disciplina;
 			
-			return disciplina;
 	}
-	
 
 
 }
