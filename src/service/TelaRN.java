@@ -23,9 +23,8 @@ public class TelaRN {
 			
 			case 0:  {
 				op = 0;
-				
 				System.out.println("Saindo...");
-				System.exit(op);
+				System.exit(0);
 				break;
 			}
 			case 1: {

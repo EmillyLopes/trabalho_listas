@@ -51,14 +51,6 @@ public class ListaRN {
 			}
 
 		}
-//		public void MostrarAlunosOrdenado() {
-//			for (int i = 0; i < universitarios.length; i++) {
-//				for (int j = 0; i < universitarios.length; i++) {
-//					Arrays.parallelSort(universitarios[i].getRgm());;
-//				}
-//			}
-//
-//		}
 		
 		public void inserirAluno(int rgm, String alunoNome, DisciplinasVO[] disciplinas) {
 			
