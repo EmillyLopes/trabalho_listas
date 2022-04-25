@@ -9,7 +9,7 @@ public class AlunoVO{
 	AlunoVO aluno;
 	private int rgm; // CHAVE PRIMARIA
 	private String nome;
-	public String[] disciplinas;
+	public DisciplinasVO[] disciplinas;
 	
 	ListaRN lista;
 	
@@ -21,31 +21,29 @@ public class AlunoVO{
 	public void setRgm(int rgm) {
 		this.rgm = rgm;
 	}
-//	@Override
-//	public String toString(){
-//		return "Disciplinas: " + disciplinas;
-//	
-//	}
-	public String[] getDisciplinas() {
-//		for(int j = 0; j < disciplinas.length; j++){
-//			System.out.print(disciplinas[j].toString());
-//	}
-		return disciplinas;
-	}
-	public void setDisciplinas(String[] disciplinas) {
-		this.disciplinas = disciplinas;
-	}
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public void setDados (int matricula, String novoNome, String[] disciplinas) {
+	public void setDados (int matricula, String novoNome, DisciplinasVO[] disciplinas) {
 		rgm = matricula;
 		nome = novoNome;
 		this.setDisciplinas(disciplinas);
 		
+	}
+	public void setDadosDis (DisciplinasVO disciplinas) {
+		DisciplinasVO d = new DisciplinasVO();
+		this.disciplinas[tamanho] = d;
+		tamanho++;
+		
+	}
+	public DisciplinasVO[] getDisciplinas() {
+		return disciplinas;
+	}
+	public void setDisciplinas(DisciplinasVO[] disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 	
 	}

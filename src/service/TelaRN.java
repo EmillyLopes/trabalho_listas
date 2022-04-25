@@ -3,11 +3,13 @@ package service;
 import java.util.Scanner;
 
 import entity.AlunoVO;
+import entity.DisciplinasVO;
 
 public class TelaRN {
 	Scanner teclado = new Scanner(System.in);
 	AlunoVO aluno;
 	ListaRN lista;
+	
 	int pergunta = 1;
 
 	public int pegaEntradaTecladoInt() {
@@ -46,13 +48,7 @@ public class TelaRN {
 				
 				System.out.println("Deseja inserir quantas disciplinas?");
 				pergunta = teclado.nextInt();
-				String[] disciplina = verificaResposta(listaAlunos, pergunta);
-				while(pergunta==1) {
-					disciplina = verificaResposta(listaAlunos, pergunta);
-				}
-				
-			
-
+				DisciplinasVO[] disciplina = inserirDisciplina(pergunta);
 				listaAlunos.inserirAluno(rgmASerInserido, nomeNewAluno, disciplina);
 				break;
 			}
@@ -81,17 +77,37 @@ public class TelaRN {
 		}
 	}
 
-	public String[] verificaResposta(ListaRN ListaAlunos, int pergunta){
+	public DisciplinasVO inserirDisciplina(int pergunta){
 		Scanner teclado = new Scanner(System.in);
-		String[] disciplina = new String[pergunta];
+		DisciplinasVO disciplina = new DisciplinasVO();
+				for(int i = 0; i < pergunta; i++) {
+					System.out.println("Digite as disciplinas:");
+					teclado.nextLine();
+					String dis = teclado.nextLine();
+					disciplina.setDisciplina(dis);
+					System.out.println("Digite a nota:");					
+					float nota = teclado.nextFloat();
+					disciplina.setNota(nota);
+					aluno.setDadosDis(disciplina);
+				} 
+				System.out.println("Saindo...");
+			return disciplina;
+	}
+	public DisciplinasVO[] verificaResposta(int pergunta){
+		Scanner teclado = new Scanner(System.in);
+		DisciplinasVO[] disciplina = new DisciplinasVO[pergunta];
 				for(int i = 0; i < disciplina.length; i++) {
 					System.out.println("Digite as disciplinas:");
-					disciplina[i] = teclado.nextLine();
-					ListaAlunos.setDisciplinas(disciplina);
+					disciplina[i].setDisciplina(teclado.nextLine());
+					System.out.println("Digite a nota:");					
+					disciplina[i].setNota(teclado.nextFloat());
+					aluno.setDisciplinas(disciplina);
 				} 
 				System.out.println("Saindo...");
 			
 			return disciplina;
 	}
 	
+
+
 }

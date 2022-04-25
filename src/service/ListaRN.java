@@ -3,13 +3,13 @@ package service;
 import java.util.Scanner;
 
 import entity.AlunoVO;
+import entity.DisciplinasVO;
 
 public class ListaRN {
 
 		AlunoVO aluno;
 		TelaRN tela;
 		AlunoVO[] universitarios = new AlunoVO[60];
-		String[] disciplinas;
 
 		int tamanho = 0;
 		
@@ -27,6 +27,7 @@ public class ListaRN {
 
 			try {
 				if (estaVazia() )
+					
 					System.out.println("Nao ha nomes na lista");
 				else {
 					System.out.println("Segue a lista de alunos:");
@@ -46,7 +47,7 @@ public class ListaRN {
 			}
 
 		}	
-		public void inserirAluno(int rgm, String alunoNome, String[] disciplinas) {
+		public void inserirAluno(int rgm, String alunoNome, DisciplinasVO[] disciplinas) {
 			
 			if ( estaCheia()) {
 				System.out.println("A lista esta cheia");
@@ -66,9 +67,7 @@ public class ListaRN {
 //				tamanho++;
 //			}
 //		}
-		public void setDisciplinas(String[] disciplinas) {
-			this.disciplinas = disciplinas;
-		}
+		
 		public void excluirAluno(int posicao) {
 			
 			for(int i = posicao ;i<tamanho; i++) {
@@ -91,19 +90,5 @@ public class ListaRN {
 	 			}
 	 		}
 	 		System.out.println("Aluno n�o existe\n");
-	 	}
-		
-		
-		private void moveParaDireita(int posicao) {
-			for( int i=tamanho+1 ;i>posicao; i--){
-				universitarios[i] = universitarios[i - 1]; //quando o programa executa essa linha, sobrescreve duas vezes os ultimos dados que foram inseridos, ao inves de abrir uma nova posição para poder aloca-los
-			}
-		}
-
-		private void moveParaEsquerda(int posicao){
-			for( int i = posicao ;i<tamanho; i++){
-				universitarios[i] = universitarios[i + 1];
-			}
-		}
-		
-	}
+	 	}	
+}
